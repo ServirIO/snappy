@@ -147,8 +147,9 @@ abstract class AbstractGenerator implements GeneratorInterface
 
         $command = $this->getCommand($input, $output, $options);
 
-        list($status, $stdout, $stderr) = $this->executeCommand($command);
-        $this->checkProcessStatus($status, $stdout, $stderr, $command);
+        exec($command);
+        // list($status, $stdout, $stderr) = $this->executeCommand($command);
+        // $this->checkProcessStatus($status, $stdout, $stderr, $command);
 
         $this->checkOutput($output, $command);
     }
